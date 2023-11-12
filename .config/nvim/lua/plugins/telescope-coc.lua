@@ -1,0 +1,29 @@
+-- NOTE: проблемы с шириной dropdown
+--
+-- local M = {
+--     "fannheyward/telescope-coc.nvim"
+-- }
+--
+-- M.config = function()
+-- 	local actions = require("telescope.actions")
+--     local def_mapping = { i = { ["<esc>"] = actions.close } }
+--     require("telescope").setup({
+--         extensions = {
+--             coc = {
+-- 				-- layout_config = {
+-- 				-- 	anchor = "N",
+-- 				-- 	mirror = true,
+-- 				-- },
+--                 width = 0.35,
+--                 height = 0.40,
+--                 theme = 'dropdown',
+--                 prefer_locations = true, -- always use Telescope locations to preview definitions/declarations/implementations etc
+-- 				mappings = def_mapping,
+--             }
+--         },
+--     })
+--     require('telescope').load_extension('coc')
+-- end
+--
+--
+-- return M
