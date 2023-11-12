@@ -34,7 +34,6 @@ lazy.setup({
 	{ "wellle/targets.vim" },    -- next for textobjects in( an( {["'
 	{ "tpope/vim-fugitive" },    -- Neogit
 	{ "jinh0/eyeliner.nvim" },   -- fast F motion and highlight uniq chars
-	{ "chaoren/vim-wordmotion" }, -- word motion extra (split on parts)
 	{
 		"NeogitOrg/neogit",      -- leader G
 		config = true
@@ -117,4 +116,5 @@ lazy.setup({
 	-- require("plugins.ide"),
 	-- { "christoomey/vim-tmux-navigator" }, -- tmux navigation for CTRL
 	-- { "simeji/winresizer" }, -- resize windows CTRL+e
+	-- { "chaoren/vim-wordmotion" }, -- word motion extra (split on parts) NOTE: изменение становятся слишком сложными
 })
