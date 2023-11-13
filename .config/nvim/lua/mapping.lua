@@ -28,7 +28,7 @@ b({ "i", "v", "n" }, "<ESC>", "<ESC>:noh<CR>", opts)
 
 --
 -- copy all text in system buffer
-b("n", "<leader>Y", "<Cmd>%y+<CR>", opts)
+-- b("n", "<leader>Y", "<Cmd>%y+<CR>", opts)
 
 -- system buffer operation
 b({ "n", "v" }, "<leader>y", '"+y', opts)

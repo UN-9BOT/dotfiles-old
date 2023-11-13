@@ -3,6 +3,9 @@ local M = {
 }
 
 M.config = function()
+	local function show_codeium_status()
+		return "{…}" .. vim.fn["codeium#GetStatusString"]()
+	end
 	require("lualine").setup({
 		sections = {
 			lualine_a = {
@@ -25,7 +28,10 @@ M.config = function()
 						newfile = '[New]', -- Text to show for newly created file before first write
 					}
 				}
-			}
+			},
+			lualine_x = {
+				{ show_codeium_status },
+			},
 		}
 	})
 end

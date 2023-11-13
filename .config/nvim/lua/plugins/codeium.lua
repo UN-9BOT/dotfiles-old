@@ -2,7 +2,7 @@ local M = {
     "Exafunction/codeium.vim",
 }
 M.config = function()
-    vim.g.codeium_manual = false
+    vim.g.codeium_manual = true
     vim.g.codeium_no_map_tab = true
 
     -- vim.g.codeium_disable_bindings = 1
