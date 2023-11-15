@@ -36,14 +36,19 @@ b({ "n", "v" }, "<leader>p", '"+p', opts)
 b({ "n", "v" }, "<leader>P", '"+P', opts)
 
 -- delete buffer
-b("n", "Q", "<cmd>lua MiniBufremove.delete()<cr>", opts)
+-- b("n", "Q", "<cmd>lua MiniBufremove.delete()<cr>", opts)
+
+-- delete tab
+b("n", "Q", "<cmd>q<cr>", opts)
 
 -- для + - перемещения
 -- b("n", "=", "+", opts)
 
 -- save session
-b({ "n", "v" }, "ZZ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZZ", opts)
-b({ "n", "v" }, "ZQ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZQ", opts)
+-- b({ "n", "v" }, "ZZ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZZ", opts)
+-- b({ "n", "v" }, "ZQ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZQ", opts)
+b({ "n", "v" }, "ZZ", "<ESC><CMD>qall<cr>", opts)
+b({ "n", "v" }, "ZQ", "<ESC><CMD>qall<cr>", opts)
 
 -- remap <c-q> -> q
 b("n", "<c-q>", "q", opts)
@@ -51,6 +56,11 @@ b("n", "q", "<Nop>", opts)
 
 -- b("n", "<F9>", "<cmd>make test<cr>", opts)
 b("i", "<c-e>", "<c-o>de", opts)
+
+b("n", "ss", ":split<cr>", opts)
+b("n", "sv", ":vsplit<cr>", opts)
+b("n", "S", ":tabedit<cr>", opts)
+b("n", "S", ":tabedit<cr>", opts)
 
 
 

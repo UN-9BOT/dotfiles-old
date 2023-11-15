@@ -17,12 +17,15 @@ M.config = function()
 		enable_diagnostics = false,
 		enable_normal_mode_for_inputs = false, -- Enable normal mode for input dialogs.
 		window = {
+			position = "right",
 			mappings = {
 				["<tab>"] = function(state)
 					state.commands["open"](state)
 					vim.cmd("Neotree reveal")
 				end,
+				["<cr>"] = "open_tabnew"
 			}
+
 		}
 		-- open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
 	})
@@ -31,7 +34,7 @@ M.config = function()
 end
 
 M.keys = {
-	{ "<leader>s", "<cmd>Neotree toggle filesystem reveal position=right<CR>", desc = "Toggle NvimTree" },
+	{ "<leader>s", "<cmd>Neotree toggle filesystem reveal <CR>", desc = "Toggle NvimTree" },
 }
 
 return M
