@@ -1,9 +1,8 @@
 local M = {
 	"nvim-neotest/neotest",
 	dependencies = {
-
 		"nvim-neotest/neotest-python",
-	}
+	},
 }
 
 M.config = function()
@@ -27,6 +26,7 @@ M.config = function()
 				python = ".venv/bin/python",
 				-- Returns if a given file path is a test file.
 				-- NB: This function is called a lot so don't perform any heavy tasks within it.
+				pytest_discover_instances = true,
 			}),
 		},
 	})

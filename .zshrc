@@ -44,6 +44,7 @@ alias lg='lazygit'
 alias ldr='lazydocker'
 alias tm='tmux attach || tmux new -c "$PWD"'
 alias c='clear'
+alias bd='blobdrop'
 
 mdcd () {
  mkdir "$1" && cd "$1"
