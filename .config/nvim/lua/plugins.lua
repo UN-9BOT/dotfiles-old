@@ -25,7 +25,6 @@ lazy.setup({
 	--
 	{ "nvim-lua/plenary.nvim" }, -- common utilities
 	{ "kkharji/sqlite.lua" },    -- sqlite for other plugins
-	{ "tribela/vim-transparent" }, -- transparent background
 	{ "farmergreg/vim-lastplace" }, -- last position in files
 	{ "tpope/vim-surround" },    -- surround ("' [ { }]')  	--> ysiw' | cs'" | ds",
 	{ "tpope/vim-repeat" },      -- repeat for surround

@@ -51,3 +51,11 @@ b("n", "q", "<Nop>", opts)
 
 -- b("n", "<F9>", "<cmd>make test<cr>", opts)
 b("i", "<c-e>", "<c-o>de", opts)
+
+
+
+-- TODO:
+-- tab
+-- s-tab
+-- ss
+-- s+another_key
