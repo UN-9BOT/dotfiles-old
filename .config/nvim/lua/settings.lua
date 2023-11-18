@@ -65,7 +65,7 @@ vim.scrolloff = 4
 -- " отображает выделение текущей строки
 vim.opt.cursorline = true
 -- фикс для cursorline
-vim.opt.lazyredraw = true
+vim.opt.lazyredraw = false
 
 -- " вертикальная черта для отображения границ кода (читаемость)
 vim.opt.colorcolumn = "120"

@@ -30,8 +30,9 @@ M.config = function()
 	local builtin = require("telescope.builtin")
 	local previewers = require('telescope.previewers')
 	-- local trouble = require("trouble.providers.telescope")
-	local def_mapping = { i = { ["<esc>"] = actions.close, ["<cr>"] = "select_tab", } }
-	local map_esc= { i = { ["<esc>"] = actions.close, } }
+	-- local def_mapping = { i = { ["<esc>"] = actions.close, ["<cr>"] = "select_tab", } }
+	local def_mapping = { i = { ["<esc>"] = actions.close }}
+	local map_esc = { i = { ["<esc>"] = actions.close, } }
 	local delta = previewers.new_termopen_previewer {
 		get_command = function(entry)
 			return { 'git', '-c', 'core.pager=delta', '-c', 'delta.side-by-side=false', 'blame', entry.value .. '^!',
@@ -119,6 +120,13 @@ M.config = function()
 			-- 	-- find command (defaults to `fd`)
 			-- 	find_cmd = "rg",
 			-- },
+			fzf = {
+				fuzzy = true,         -- false will only do exact matching
+				override_generic_sorter = true, -- override the generic sorter
+				override_file_sorter = true, -- override the file sorter
+				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
+				-- the default case_mode is "smart_case"
+			}
 		},
 		pickers = {
 			find_files = {

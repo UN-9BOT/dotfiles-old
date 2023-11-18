@@ -20,7 +20,7 @@ M.config = function()
 
 	-- Действия
 	vim.g.rnvimr_action = {
-		["<cr>"] = "NvimEdit edit",
+		["<cr>"] = "NvimEdit tabedit",
 		["<C-t>"] = "NvimEdit tabedit",
 		["<A-i>"] = "NvimEdit split",
 		["<C-i>"] = "NvimEdit vsplit",
