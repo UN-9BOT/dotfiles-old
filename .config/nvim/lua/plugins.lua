@@ -83,6 +83,8 @@ lazy.setup({
 	require("plugins.dap"),                  -- debugger
 	require("plugins.dap_ui"),               -- debugger ui
 	require("plugins.neotest"),              -- tests ui
+	-- require("plugins.nvim_dap_python"),              -- tests ui
+	require("plugins.dap_python"),              -- tests ui
 	require("plugins.nvim-scrollview"),      -- scroll bar on right
 	require("plugins.telekasten"),           -- notes in markdown
 	require("plugins.hlslens"),              -- for navigate in search mode

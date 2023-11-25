@@ -42,7 +42,7 @@ b({ "n", "v" }, "<leader>P", '"+P', opts)
 b("n", "Q", "<cmd>q<cr>", opts)
 
 -- для + - перемещения
--- b("n", "=", "+", opts)
+b("n", "=", "+", opts)
 
 -- save session
 -- b({ "n", "v" }, "ZZ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZZ", opts)
