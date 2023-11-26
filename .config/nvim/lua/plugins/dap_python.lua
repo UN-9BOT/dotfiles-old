@@ -1,6 +1,8 @@
 local M = {
 	"mfussenegger/nvim-dap-python",
-	dependencies = "mfussenegger/nvim-dap",
+	dependencies = {
+		{ "mfussenegger/nvim-dap" },
+	},
 }
 
 M.config = function()
@@ -31,6 +33,22 @@ M.config = function()
 		end
 	end
 	require("dap-python").setup(pythonPath())
+
+	table.insert(require('dap').configurations.python, {
+		type = 'python',
+		request = 'launch',
+		name = 'bnpl-local-run',
+		pythonPath = pythonPath(),
+		program = "/home/un9bot/code/python/bnpl_back/run.py",
+		env = {
+			CONFIG_SECRETS_PATH = "./example.secrets.toml",
+			CONFIG_PATH = "config.toml",
+			CONFIG_RENDERER = "jinja2",
+		},
+		console = "integratedTerminal",
+	})
+
+	-- require("dap-python").test_runner = "pytest"
 	-- table.insert(require('dap').configurations.python, {
 	-- 	type = 'python',
 	-- 	request = 'launch',

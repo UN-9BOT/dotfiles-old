@@ -35,7 +35,6 @@ lazy.setup({
 	{ "tpope/vim-surround" },                                 -- surround ("' [ { }]')  	--> ysiw' | cs'" | ds",
 	{ "tpope/vim-repeat" },                                   -- repeat for surround
 	{ "sindrets/diffview.nvim" },                             -- :Diffview
-	{ "dhruvasagar/vim-zoom" },                               -- ZOOM (leader shift z)
 	{ "wellle/targets.vim" },                                 -- next for textobjects in( an( {["'
 	{ "tpope/vim-fugitive" },                                 -- Neogit
 	{ "jinh0/eyeliner.nvim" },                                -- fast F motion and highlight uniq chars
@@ -43,7 +42,6 @@ lazy.setup({
 	{ "ldelossa/buffertag",       config = r("buffertag") },  -- float name for tab
 	{ "folke/todo-comments.nvim", config = r("todo-comments") }, -- TODO: WARNING: FIX: XXX: BUG: NOTE:
 	{ "numToStr/Comment.nvim",    config = r("Comment") },    -- commentary for if (Loop)
-	{ "j-hui/fidget.nvim",        config = r("fidget") },     -- notify
 
 
 
@@ -71,7 +69,6 @@ lazy.setup({
 	require("plugins.rainbow_delimiters"),   -- rainbow brackets and operators
 	require("plugins.nvim_autopairs"),       -- autopairs for brackets
 	require("plugins.neogen"),               -- DOC for C
-	require("plugins.zen_mode"),             -- zen mode
 	require("plugins.vim_visual_multi"),     -- multi cursor
 	require("plugins.gitsigns"),             -- right sign inline
 	require("plugins.lazygit"),              -- leader+l+g
@@ -92,13 +89,20 @@ lazy.setup({
 	require("plugins.spectre"),              -- search and replace
 	require("plugins.smart-splits"),         -- navigate for tmux and resize (ctrl -> navigate, alt -> resize)
 	require("plugins.vim-matchup"),          -- % match
-	require("plugins.notify"),
+	require("plugins.notify"),               -- notifications
+	require("plugins.harpoon"),              -- marks for file
+	require("plugins.windows"),
 
 	-- ----------------------------
 	-- NOTE: dependencies
 	-- ----------------------------
 	require("plugins.nvim-window-picker"), -- window picker for file_browser
 	require("plugins.nvim_web_devicons"), -- for other plugins, extend with icons
+
+	-- ----------------------------
+	-- NOTE: IN_PROGRESS
+	-- ----------------------------
+	--
 
 	-- ----------------------------
 	-- NOTE: ARCHIVE
@@ -131,4 +135,8 @@ lazy.setup({
 	-- 		dap_enabled = true, -- makes the debugger work with venv
 	-- 	},
 	-- },
+	-- { "j-hui/fidget.nvim",        config = r("fidget") },     -- заменил на notify
+	--
+	-- { "dhruvasagar/vim-zoom" },      -- ZOOM (leader shift z)
+	-- require("plugins.zen_mode"),     -- убрал так как исопользую "windows" плагин
 })
