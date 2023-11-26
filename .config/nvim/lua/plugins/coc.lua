@@ -17,8 +17,9 @@ M.config = function()
 
 	b("n", "gd", "mD<Plug>(coc-definition)", { silent = true })
 	b("n", "gt", "<Plug>(coc-type-definition)", { silent = true })
-	b("n", "gi", "<Plug>(coc-implementation)", { silent = true })
-	b("n", "gr", "<Plug>(coc-references)", { silent = true })
+	-- b("n", "gi", "<Plug>(coc-implementation)", { silent = true })
+	-- b("n", "gr", "<Plug>(coc-references)", { silent = true })
+	b("n", "gr", "<cmd>Telescope coc references<CR>", { silent = true })
 	b("n", "gj", vim.diagnostic.open_float, { silent = true })
 
 	b("n", "<leader>rn", "<Plug>(coc-rename)", { silent = true })

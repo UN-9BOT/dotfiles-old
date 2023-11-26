@@ -6,6 +6,7 @@ local M = {
 }
 
 M.config = function()
+	local nf = require("notify")
 	require("neotest").setup({
 		adapters = {
 			require("neotest-python")({
@@ -14,7 +15,7 @@ M.config = function()
 				dap = { justMyCode = true },
 				-- Command line arguments for runner
 				-- Can also be a function to return dynamic values
-				args = { "-vv" },
+				args = { "--log-level", "DEBUG", "--quiet", "-vv" },
 				-- Runner to use. Will use pytest if available by default.
 				-- Can be a function to return dynamic value.
 				runner = "pytest",
@@ -35,15 +36,52 @@ M.config = function()
 	local b = vim.keymap.set
 	local opts = { noremap = true, silent = true }
 
-	-- b("n", "<leader>dtm", "<cmd>lua require('neotest').run.run({strategy='dap'})<CR>", opts)
-	b("n", "<leader>dtm", "<cmd>lua require('neotest').run.run()<CR>", opts)
-	b("n", "<leader>dtl", "<cmd>lua require('neotest').run.run_last()<CR>", opts)
+	b("n",
+		"<leader>du",
+		function()
+			require('dapui').toggle()
+			nf.notify("DAP UI")
+		end,
+		opts
+	)
+	b("n",
+		"<leader>dM",
+		function()
+			require('neotest').run.run({ strategy = 'dap' })
+			nf.notify("🪲 T:start")
+		end,
+		opts
+	)
+	b("n",
+		"<leader>dm",
+		function()
+			require('neotest').run.run()
+			nf.notify("T:start")
+		end,
+		opts
+	)
+	-- b("n", "<leader>dtl", "<cmd>lua require('neotest').run.run_last()<CR>", opts)
 	-- b("n", "<leader>dto", "<cmd>lua require('neotest').output.open({enter=true})<CR>", opts)
-	b("n", "<leader>dto", "<cmd>lua require('neotest').output_panel.toggle({enter=true})<CR>", opts)
-	b("n", "<leader>dts", "<cmd>lua require('neotest').run.stop()<CR>", opts)
-	b("n", "<leader>dtf", "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<CR>", opts)
-	b("n", "<leader>dti", "<cmd>lua require('neotest').summary.toggle()<CR>", opts)
+	b("n", "<leader>do", "<cmd>lua require('neotest').output_panel.toggle({enter=true})<CR>", opts)
+	b("n",
+		"<leader>ds",
+		function()
+			require('neotest').run.stop()
+			nf.notify("T:stop")
+		end,
+		opts
+	)
+	b("n",
+		"<leader>dS",
+		function()
+			require('neotest').run.stop({ strategy = 'dap' })
+			nf.notify("🪲 T:stop")
+		end,
+		opts
+	)
+	-- b("n", "<leader>dtf", "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<CR>", opts)
+	b("n", "<leader>di", "<cmd>lua require('neotest').summary.toggle()<CR>", opts)
 
-	b("n", "<leader>dtd", "<ESC>:lua require('dap-python').debug_selection()<CR>", opts)
+	-- b("n", "<leader>dtd", "<ESC>:lua require('dap-python').debug_selection()<CR>", opts)
 end
 return M

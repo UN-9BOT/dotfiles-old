@@ -18,25 +18,32 @@ if not status_ok then
 	return
 end
 
+local function r(name)
+	return function()
+		require(name).setup()
+	end
+end
+
 lazy.setup({
 	-- -----------------------
 	-- NOTE: WITHOUT CONFIG
 	-- -----------------------
 	--
-	{ "nvim-lua/plenary.nvim" }, -- common utilities
-	{ "kkharji/sqlite.lua" },    -- sqlite for other plugins
-	{ "farmergreg/vim-lastplace" }, -- last position in files
-	{ "tpope/vim-surround" },    -- surround ("' [ { }]')  	--> ysiw' | cs'" | ds",
-	{ "tpope/vim-repeat" },      -- repeat for surround
-	{ "sindrets/diffview.nvim" }, -- :Diffview
-	{ "dhruvasagar/vim-zoom" },  -- ZOOM (leader shift z)
-	{ "wellle/targets.vim" },    -- next for textobjects in( an( {["'
-	{ "tpope/vim-fugitive" },    -- Neogit
-	{ "jinh0/eyeliner.nvim" },   -- fast F motion and highlight uniq chars
-	{
-		"NeogitOrg/neogit",      -- leader G
-		config = true
-	},
+	{ "nvim-lua/plenary.nvim" },                              -- common utilities
+	{ "kkharji/sqlite.lua" },                                 -- sqlite for other plugins
+	{ "farmergreg/vim-lastplace" },                           -- last position in files
+	{ "tpope/vim-surround" },                                 -- surround ("' [ { }]')  	--> ysiw' | cs'" | ds",
+	{ "tpope/vim-repeat" },                                   -- repeat for surround
+	{ "sindrets/diffview.nvim" },                             -- :Diffview
+	{ "dhruvasagar/vim-zoom" },                               -- ZOOM (leader shift z)
+	{ "wellle/targets.vim" },                                 -- next for textobjects in( an( {["'
+	{ "tpope/vim-fugitive" },                                 -- Neogit
+	{ "jinh0/eyeliner.nvim" },                                -- fast F motion and highlight uniq chars
+	{ "NeogitOrg/neogit",         config = true },            -- leader G
+	{ "ldelossa/buffertag",       config = r("buffertag") },  -- float name for tab
+	{ "folke/todo-comments.nvim", config = r("todo-comments") }, -- TODO: WARNING: FIX: XXX: BUG: NOTE:
+	{ "numToStr/Comment.nvim",    config = r("Comment") },    -- commentary for if (Loop)
+	{ "j-hui/fidget.nvim",        config = r("fidget") },     -- notify
 
 
 
@@ -48,13 +55,10 @@ lazy.setup({
 	require("plugins.marks"),                -- marks manipulation
 	require("plugins.twilight"),             -- highlight in Zoom mode
 	require("plugins.markdown-preview"),     -- markdown preview :MarkdownPreview
-	require("plugins.mini_bufremove"),       -- buffer delete :bd bdelete
 	require("plugins.my_theme"),             -- themes
 	require("plugins.indent"),               -- indent (отступы)
-
 	require("plugins.rnvimr"),               -- ranger
 	require("plugins.neotree"),              -- neotree
-
 	require("plugins.vim_smooth_scroll"),    -- scrolling
 	require("plugins.bufferline"),           -- buffers on top
 	require("plugins.lualine"),              -- line on bottom
@@ -66,8 +70,6 @@ lazy.setup({
 	require("plugins.indent_blankline"),     -- indent blanklin for func
 	require("plugins.rainbow_delimiters"),   -- rainbow brackets and operators
 	require("plugins.nvim_autopairs"),       -- autopairs for brackets
-	require("plugins.comment"),              -- commentary for
-	require("plugins.todo_comments"),        -- TODO: WARNING: FIX: XXX: BUG: NOTE:
 	require("plugins.neogen"),               -- DOC for C
 	require("plugins.zen_mode"),             -- zen mode
 	require("plugins.vim_visual_multi"),     -- multi cursor
@@ -83,14 +85,14 @@ lazy.setup({
 	require("plugins.dap"),                  -- debugger
 	require("plugins.dap_ui"),               -- debugger ui
 	require("plugins.neotest"),              -- tests ui
-	-- require("plugins.nvim_dap_python"),              -- tests ui
-	require("plugins.dap_python"),              -- tests ui
+	require("plugins.dap_python"),           -- tests ui
 	require("plugins.nvim-scrollview"),      -- scroll bar on right
 	require("plugins.telekasten"),           -- notes in markdown
 	require("plugins.hlslens"),              -- for navigate in search mode
 	require("plugins.spectre"),              -- search and replace
 	require("plugins.smart-splits"),         -- navigate for tmux and resize (ctrl -> navigate, alt -> resize)
 	require("plugins.vim-matchup"),          -- % match
+	require("plugins.notify"),
 
 	-- ----------------------------
 	-- NOTE: dependencies
@@ -110,12 +112,23 @@ lazy.setup({
 	-- 		require("plugins.gutentags")
 	-- 	end,
 	-- },
-	-- require("plugins.dap_python"),
 	-- require("plugins.tmux"),
-	-- require("plugins.telescope-coc"),
 	-- require("plugins.glance"),
 	-- require("plugins.ide"),
 	-- { "christoomey/vim-tmux-navigator" }, -- tmux navigation for CTRL
 	-- { "simeji/winresizer" }, -- resize windows CTRL+e
 	-- { "chaoren/vim-wordmotion" }, -- word motion extra (split on parts) NOTE: изменение становятся слишком сложными
+	--
+	-- { "echasnovski/mini.bufremove", config = r("mini.bufremove") },       -- не актуально. перешел на tabs
+	-- {
+	-- 	"linux-cultist/venv-selector.nvim",
+	-- 	dependencies = {
+	-- 		"neovim/nvim-lspconfig",
+	-- 		"nvim-telescope/telescope.nvim",
+	-- 		"mfussenegger/nvim-dap-python",
+	-- 	},
+	-- 	opts = {
+	-- 		dap_enabled = true, -- makes the debugger work with venv
+	-- 	},
+	-- },
 })

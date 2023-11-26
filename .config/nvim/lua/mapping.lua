@@ -47,8 +47,10 @@ b("n", "=", "+", opts)
 -- save session
 -- b({ "n", "v" }, "ZZ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZZ", opts)
 -- b({ "n", "v" }, "ZQ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZQ", opts)
-b({ "n", "v" }, "ZZ", "<ESC><CMD>qall<cr>", opts)
-b({ "n", "v" }, "ZQ", "<ESC><CMD>qall<cr>", opts)
+-- b({ "n", "v" }, "ZZ", "<ESC><CMD>qall<cr>", opts)
+-- b({ "n", "v" }, "ZQ", "<ESC><CMD>qall<cr>", opts)
+b({ "n", "v" }, "ZZ", "<ESC><CMD>lua require'dapui'.close()<CR><CMD>qall<cr>", opts) -- +close dap-ui
+b({ "n", "v" }, "ZQ", "<ESC><CMD>lua require'dapui'.close()<CR><CMD>qall<cr>", opts) -- +close dap-ui
 
 -- remap <c-q> -> q
 b("n", "<c-q>", "q", opts)
@@ -60,7 +62,7 @@ b("i", "<c-e>", "<c-o>de", opts)
 b("n", "ss", ":split<cr>", opts)
 b("n", "sv", ":vsplit<cr>", opts)
 b("n", "S", ":tabedit<cr>", opts)
-b("n", "S", ":tabedit<cr>", opts)
+b("n", "st", "<ESC>my<cmd>tabnew %<cr><esc>'yzz", opts)
 
 
 

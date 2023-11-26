@@ -19,7 +19,9 @@ local M = {
 				})
 			end,
 		},
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
+		{ "nvim-telescope/telescope-fzf-native.nvim",  build = "make" },
+		{ "fannheyward/telescope-coc.nvim" },
+		{ "nvim-telescope/telescope-file-browser.nvim" },
 	},
 }
 
@@ -31,7 +33,18 @@ M.config = function()
 	local previewers = require('telescope.previewers')
 	-- local trouble = require("trouble.providers.telescope")
 	-- local def_mapping = { i = { ["<esc>"] = actions.close, ["<cr>"] = "select_tab", } }
-	local def_mapping = { i = { ["<esc>"] = actions.close }}
+	local def_mapping = {
+		i = {
+			["<esc>"] = actions.close,
+			["<C-s>"] = actions.file_split,
+			["<C-v>"] = actions.file_vsplit,
+		},
+		n = {
+			["<esc>"] = actions.close,
+			["<C-s>"] = actions.file_split,
+			["<C-v>"] = actions.file_vsplit,
+		},
+	}
 	local map_esc = { i = { ["<esc>"] = actions.close, } }
 	local delta = previewers.new_termopen_previewer {
 		get_command = function(entry)
@@ -112,6 +125,29 @@ M.config = function()
 			-- 	n = { ["<c-t>"] = trouble.open_with_trouble },
 			-- }
 		},
+		vimgrep_arguments = {
+			"rg",
+			"-L",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+		},
+		layout_config = {
+			horizontal = {
+				prompt_position = "top",
+				preview_width = 0.55,
+				results_width = 0.8,
+			},
+			vertical = {
+				mirror = false,
+			},
+			width = 0.87,
+			height = 0.80,
+			preview_cutoff = 120,
+		},
 		extensions = {
 			-- media_files = {
 			-- 	-- filetypes whitelist
@@ -121,7 +157,7 @@ M.config = function()
 			-- 	find_cmd = "rg",
 			-- },
 			fzf = {
-				fuzzy = true,         -- false will only do exact matching
+				fuzzy = true,       -- false will only do exact matching
 				override_generic_sorter = true, -- override the generic sorter
 				override_file_sorter = true, -- override the file sorter
 				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
@@ -130,7 +166,7 @@ M.config = function()
 		},
 		pickers = {
 			find_files = {
-				layout_config = { height = 0.6, width = 0.9 },
+				-- layout_config = { height = 0.6, width = 0.9 },
 				-- theme = "ivy",
 				-- previewer = false,
 				sorting = "frecency",
@@ -155,13 +191,13 @@ M.config = function()
 			-- 	mappings = def_mapping,
 			-- },
 			live_grep = {
-				layout_config = {
-					anchor = "N",
-					height = 0.50,
-					mirror = true,
-					width = 0.95,
-				},
-				theme = "dropdown",
+				-- layout_config = {
+				-- 	anchor = "N",
+				-- 	height = 0.50,
+				-- 	mirror = true,
+				-- 	width = 0.95,
+				-- },
+				-- theme = "dropdown",
 				mappings = def_mapping,
 			},
 			git_bcommits_range = {
@@ -185,37 +221,40 @@ M.config = function()
 			-- 	mappings = def_mapping,
 			-- },
 			grep_string = {
-				layout_config = {
-					anchor = "N",
-					height = 0.30,
-					mirror = true,
-					width = 0.95,
-				},
-				theme = "dropdown",
+				-- layout_config = {
+				-- 	anchor = "N",
+				-- 	height = 0.30,
+				-- 	mirror = true,
+				-- 	width = 0.95,
+				-- },
+				-- theme = "dropdown",
 				mappings = def_mapping,
 			},
 			registers = {
 				theme = "dropdown",
 				mappings = map_esc,
 			},
+			coc = {
+				mappings = def_mapping,
+			},
 			current_buffer_fuzzy_find = {
-				layout_config = {
-					anchor = "N",
-					height = 0.30,
-					mirror = true,
-					width = 0.95,
-				},
-				theme = "dropdown",
+				-- layout_config = {
+				-- 	anchor = "N",
+				-- 	height = 0.30,
+				-- 	mirror = true,
+				-- 	width = 0.95,
+				-- },
+				-- theme = "dropdown",
 				mappings = map_esc,
 			},
 			jumplist = {
-				layout_config = {
-					anchor = "N",
-					height = 0.30,
-					mirror = true,
-					width = 0.95,
-				},
-				theme = "dropdown",
+				-- layout_config = {
+				-- 	anchor = "N",
+				-- 	height = 0.30,
+				-- 	mirror = true,
+				-- 	width = 0.95,
+				-- },
+				-- theme = "dropdown",
 				mappings = {
 					i = {
 						["<esc>"] = actions.close,
@@ -228,9 +267,10 @@ M.config = function()
 	})
 	require("telescope").load_extension("fzf")
 	require("telescope").load_extension("import")
+	require('telescope').load_extension('coc')
+	require("telescope").load_extension("file_browser")
 	-- require("telescope").load_extension('media_files')
 	-- require("telescope").load_extension("live_grep_args")
-	-- require("telescope").load_extension("file_browser")
 end
 
 

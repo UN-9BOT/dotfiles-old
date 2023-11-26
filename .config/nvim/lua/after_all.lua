@@ -22,3 +22,7 @@ vim.api.nvim_create_autocmd("WinLeave", {
     end
   end,
 })
+
+
+require("mason").setup()
+require("mason-nvim-dap").setup()
