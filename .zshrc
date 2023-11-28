@@ -32,6 +32,7 @@ alias v='nvim --listen /tmp/nvim-server-$(tmux display-message -p "#S").pipe'
 
 # ALIAS
 alias nv='neovide'
+alias kn='killall nvim'
 alias q='exit'
 alias p='python'
 alias pt='ptpython'

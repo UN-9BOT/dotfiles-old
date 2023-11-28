@@ -3,7 +3,8 @@ local M = {
 }
 M.config = function()
 	vim.g.ale_linters = {
-		python = { "ruff", "mypy", "refurb" },
+		-- python = { "ruff", "mypy", "refurb" },
+		python = { "ruff", "mypy" },
 		c = { "clangd", "cppcheck", "clang-tidy", "splint" },
 		html = { "vscode-html-languageserver", "tidy" },
 		htmldjango = { "vscode-html-languageserver", "tidy" },

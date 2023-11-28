@@ -38,6 +38,7 @@ lazy.setup({
 	{ "wellle/targets.vim" },                                 -- next for textobjects in( an( {["'
 	{ "tpope/vim-fugitive" },                                 -- Neogit
 	{ "jinh0/eyeliner.nvim" },                                -- fast F motion and highlight uniq chars
+	{ "RRethy/vim-tranquille" },                              -- search and highlight without moving the cursor g/
 	{ "NeogitOrg/neogit",         config = true },            -- leader G
 	{ "ldelossa/buffertag",       config = r("buffertag") },  -- float name for tab
 	{ "folke/todo-comments.nvim", config = r("todo-comments") }, -- TODO: WARNING: FIX: XXX: BUG: NOTE:
