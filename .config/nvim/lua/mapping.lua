@@ -49,8 +49,40 @@ b("n", "=", "+", opts)
 -- b({ "n", "v" }, "ZQ", "<ESC><CMD>Neotree close<CR><cmd>SessionSave<cr>ZQ", opts)
 -- b({ "n", "v" }, "ZZ", "<ESC><CMD>qall<cr>", opts)
 -- b({ "n", "v" }, "ZQ", "<ESC><CMD>qall<cr>", opts)
-b({ "n", "v" }, "ZZ", "<ESC><CMD>lua require'dapui'.close()<CR><CMD>qall<cr>", opts) -- +close dap-ui
-b({ "n", "v" }, "ZQ", "<ESC><CMD>lua require'dapui'.close()<CR><CMD>qall<cr>", opts) -- +close dap-ui
+
+local function close_test_ui()
+    vim.cmd [[Neotest summary close]]
+    require 'dapui'.close()
+end
+
+local function save_session()
+    vim.cmd [[SessionSave]]
+end
+
+local function close_save()
+    vim.cmd [[qall]]
+end
+
+local function close_no_save()
+    vim.cmd [[qall!]]
+end
+
+local function ZZ()
+    vim.api.nvim_input("<Esc>")
+    close_test_ui()
+    save_session()
+    close_save()
+end
+
+local function ZQ()
+    vim.api.nvim_input("<Esc>")
+    close_test_ui()
+    save_session()
+    close_no_save()
+end
+
+b({ "n", "v" }, "ZZ", ZZ, opts)
+b({ "n", "v" }, "ZQ", ZQ, opts)
 
 -- remap <c-q> -> q
 b("n", "<c-q>", "q", opts)

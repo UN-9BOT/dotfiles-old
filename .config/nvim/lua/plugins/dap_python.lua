@@ -39,6 +39,7 @@ M.config = function()
 		request = 'launch',
 		name = 'bnpl-local-run',
 		pythonPath = pythonPath(),
+		justMyCode = false,
 		program = "/home/un9bot/code/python/bnpl_back/run.py",
 		env = {
 			CONFIG_SECRETS_PATH = "./example.secrets.toml",

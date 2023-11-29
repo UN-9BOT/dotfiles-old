@@ -2,6 +2,7 @@ local M = {
 	"nvim-neotest/neotest",
 	dependencies = {
 		"nvim-neotest/neotest-python",
+		"antoinemadec/FixCursorHold.nvim",
 	},
 }
 
@@ -15,7 +16,7 @@ M.config = function()
 				dap = { justMyCode = true },
 				-- Command line arguments for runner
 				-- Can also be a function to return dynamic values
-				args = { "--log-level", "DEBUG", "--quiet", "-vv" },
+				args = { "--log-level", "DEBUG", "-vv" },
 				-- Runner to use. Will use pytest if available by default.
 				-- Can be a function to return dynamic value.
 				runner = "pytest",
@@ -27,7 +28,10 @@ M.config = function()
 				python = ".venv/bin/python",
 				-- Returns if a given file path is a test file.
 				-- NB: This function is called a lot so don't perform any heavy tasks within it.
-				pytest_discover_instances = true,
+				-- NOTE: слишком медленный парсинг и грузит проц
+				-- используется для парсинга параметризированных тестов
+				-- для отображения параметризированных выставить true
+				pytest_discover_instances = false,
 			}),
 		},
 	})
@@ -80,7 +84,7 @@ M.config = function()
 		opts
 	)
 	-- b("n", "<leader>dtf", "<cmd>lua require('neotest').run.run({vim.fn.expand('%')})<CR>", opts)
-	b("n", "<leader>di", "<cmd>lua require('neotest').summary.toggle()<CR>", opts)
+	b("n", "<leader>dt", "<cmd>lua require('neotest').summary.toggle()<CR>", opts)
 
 	-- b("n", "<leader>dtd", "<ESC>:lua require('dap-python').debug_selection()<CR>", opts)
 end

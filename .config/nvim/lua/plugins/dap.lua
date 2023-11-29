@@ -58,7 +58,7 @@ M.config = function()
 	b("n",
 		"<leader>dj",
 		function()
-			require("dap").down()
+			require("dap").step_over()
 			nf.notify("D:down")
 		end
 	)

@@ -92,7 +92,7 @@ lazy.setup({
 	require("plugins.vim-matchup"),          -- % match
 	require("plugins.notify"),               -- notifications
 	require("plugins.harpoon"),              -- marks for file
-	require("plugins.windows"),
+	-- require("plugins.windows"),
 
 	-- ----------------------------
 	-- NOTE: dependencies
@@ -140,4 +140,11 @@ lazy.setup({
 	--
 	-- { "dhruvasagar/vim-zoom" },      -- ZOOM (leader shift z)
 	-- require("plugins.zen_mode"),     -- убрал так как исопользую "windows" плагин
+	-- profiling = {
+	-- 	-- Enables extra stats on the debug tab related to the loader cache.
+	-- 	-- Additionally gathers stats about all package.loaders
+	-- 	loader = false,
+	-- 	-- Track each new require in the Lazy profiling tab
+	-- 	require = false,
+	-- },
 })
