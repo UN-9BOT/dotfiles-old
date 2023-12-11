@@ -89,4 +89,4 @@ _open_files_for_editing() {
 ################################################################################
 
 
-source /home/un9bot/.config/broot/launcher/bash/br
+source /home/vim9/.config/broot/launcher/bash/br

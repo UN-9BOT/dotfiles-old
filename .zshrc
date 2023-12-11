@@ -166,11 +166,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-source /home/un9bot/.config/broot/launcher/bash/br
+source /home/vim9/.config/broot/launcher/bash/br
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
 
 # Created by `pipx` on 2023-10-14 15:28:34
-export PATH="$PATH:/home/un9bot/.local/bin"
+export PATH="$PATH:/home/vim9/.local/bin"
 
 
 export PYENV_ROOT="$HOME/.pyenv"

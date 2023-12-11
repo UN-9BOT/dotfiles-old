@@ -92,6 +92,7 @@ lazy.setup({
 	require("plugins.vim-matchup"),          -- % match
 	require("plugins.notify"),               -- notifications
 	require("plugins.harpoon"),              -- marks for file
+	require("plugins.floaterm"),
 	-- require("plugins.windows"),
 
 	-- ----------------------------
