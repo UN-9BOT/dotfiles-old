@@ -53,6 +53,13 @@ M.config = function()
 		end
 	)
 	b("n",
+		"<leader>dC",
+		function()
+			require("dap").run_to_cursor()
+			nf.notify("D:run_to_cursor")
+		end
+	)
+	b("n",
 		"<leader>di",
 		function()
 			require("dap").step_into()

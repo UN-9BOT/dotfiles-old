@@ -22,8 +22,7 @@ end
 
 M.keys = {
 	{ "<leader>lg", "<cmd>LazyGit<CR>", mode = { "n" }, desc = "LazyGit" },
-	{ "<leader>lhf", "<cmd>LazyGitFilterCurrentFile<CR>", mode = { "n" }, desc = "LazyGitFilterCurrentFile" },
-	{ "<leader>lcc", "<cmd>LazyGitFilter<CR>", mode = { "n" }, desc = "LazyGitFilter" },
+	{ "<leader>lf", "<cmd>LazyGitFilterCurrentFile<CR>", mode = { "n" }, desc = "LazyGitFilterCurrentFile" },
 	{ "<leader>G", "<cmd>Neogit kind=vsplit<CR>", mode = { "n" }, desc = "Neogit" },
 	{ "<leader>D", DiffviewToggle, mode = { "n" }, desc = "DiffviewToggle" },
 }

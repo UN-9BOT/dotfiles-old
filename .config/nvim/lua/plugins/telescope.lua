@@ -162,6 +162,10 @@ M.config = function()
 				override_file_sorter = true, -- override the file sorter
 				case_mode = "smart_case", -- or "ignore_case" or "respect_case"
 				-- the default case_mode is "smart_case"
+			},
+			coc = {
+				theme = "ivy",
+				prefer_locations = true,
 			}
 		},
 		pickers = {

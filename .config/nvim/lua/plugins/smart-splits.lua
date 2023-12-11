@@ -16,6 +16,11 @@ M.config = function()
 	b('n', '<leader><leader>j', require('smart-splits').swap_buf_down)
 	b('n', '<leader><leader>k', require('smart-splits').swap_buf_up)
 	b('n', '<leader><leader>l', require('smart-splits').swap_buf_right)
+
+
+	require("smart-splits").setup({
+		disable_multiplexer_nav_when_zoomed = false,
+	})
 end
 
 
