@@ -16,6 +16,7 @@ M.config = function()
 	b("i", "<c-space>", "coc#refresh()", { silent = true, expr = true })
 
 	b("n", "gd", "mD<Plug>(coc-definition)", { silent = true })
+	b("n", "gD", ":vsplit<cr><Plug>(coc-definition)", { silent = true })
 	b("n", "gt", "<Plug>(coc-type-definition)", { silent = true })
 	-- b("n", "gi", "<Plug>(coc-implementation)", { silent = true })
 	-- b("n", "gr", "<Plug>(coc-references)", { silent = true })

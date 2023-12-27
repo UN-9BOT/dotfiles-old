@@ -121,6 +121,26 @@ vim.api.nvim_create_autocmd({ "FileType" }, {
 	end,
 })
 
+vim.api.nvim_create_autocmd({ "FileType" }, {
+	pattern = { "bash", "sh" },
+	callback = function()
+		vim.bo.shiftwidth = 2
+		-- vim.bo.smarttab = true
+		-- vim.bo.autoindent = true
+		vim.bo.expandtab = true
+		vim.bo.softtabstop = 2
+	end,
+})
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+-- 	pattern = { "Makefile" },
+-- 	callback = function()
+-- 		-- vim.bo.shiftwidth = 4
+-- 		vim.bo.smarttab = true
+-- 		vim.bo.autoindent = true
+-- 		-- vim.bo.expandtab = true
+-- 		-- vim.bo.softtabstop = 2
+-- 	end,
+-- })
 -- FOR neovide
 vim.g.neovide_fullscreen = true
 vim.g.neovide_cursor_animation_length = 0.05

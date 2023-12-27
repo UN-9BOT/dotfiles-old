@@ -55,7 +55,7 @@ lazy.setup({
 	require("plugins.twilight"),             -- highlight in Zoom mode
 	require("plugins.markdown-preview"),     -- markdown preview :MarkdownPreview
 	require("plugins.my_theme"),             -- themes
-	require("plugins.indent"),               -- indent (отступы)
+	-- require("plugins.indent"),               -- indent (отступы)
 	require("plugins.rnvimr"),               -- ranger
 	require("plugins.neotree"),              -- neotree
 	require("plugins.vim_smooth_scroll"),    -- scrolling
@@ -93,6 +93,7 @@ lazy.setup({
 	require("plugins.notify"),               -- notifications
 	require("plugins.harpoon"),              -- marks for file
 	require("plugins.floaterm"),
+	require("plugins.dadbod"),               -- vim db and ui
 	-- require("plugins.windows"),
 
 	-- ----------------------------
@@ -105,6 +106,15 @@ lazy.setup({
 	-- NOTE: IN_PROGRESS
 	-- ----------------------------
 	--
+	{
+		"ellisonleao/dotenv.nvim",
+		config = function()
+			require('dotenv').setup({
+				enable_on_load = true, -- will load your .env file upon loading a buffer
+				verbose = false, -- show error notification if .env file is not found and if .env is loaded
+			})
+		end
+	},
 
 	-- ----------------------------
 	-- NOTE: ARCHIVE

@@ -9,6 +9,8 @@ M.config = function()
 		html = { "vscode-html-languageserver", "tidy" },
 		htmldjango = { "vscode-html-languageserver", "tidy" },
 		cpp = { "clang", "clang-check", "clang-tidy" },
+		sh = {"bashate", "shfmt", "bash-language-server"},
+		bash = {"bashate", "shfmt", "bash-language-server"},
 	}
 
 
@@ -36,6 +38,8 @@ M.config = function()
 	vim.g.ale_echo_msg_info_str    = 'I'
 
 	vim.g.ale_python_ruff_options  = ' --config ~/.config/nvim/ruff.toml'
+
+	vim.g.ale_sh_shfmt_options = '-i 4 -ci'
 end
 
 return M

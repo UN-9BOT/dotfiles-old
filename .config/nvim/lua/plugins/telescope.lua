@@ -57,6 +57,7 @@ M.config = function()
 
 	b("n", ",f", "<CMD>Telescope find_files<CR>", opts)
 	b("n", ",g", builtin.live_grep, opts)
+	-- b("n", ",G", require("telescope").extensions.live_grep_args.live_grep_args(), opts)
 	b("n", ",,", builtin.resume, opts)
 	b({ "n", "v" }, ",v", builtin.grep_string, opts)
 	b({ "n", "v" }, ",r", builtin.registers, opts)

@@ -17,6 +17,9 @@ M.config = function()
         filetype_rust = {
             standard_widths = { 4 },
         },
+        filetype_sh = {
+            standard_widths = { 4 },
+        },
 
         -- Don't detect 8 spaces indentations inside files without a filetype
         filetype_ = {

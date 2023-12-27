@@ -39,6 +39,7 @@ ignore = [
     "B008",  # func in annotation
     "PT006",  # pytest.mark.parametrize
     "PLR0913", # too many arguments for func
+    "S603",  # subprocess args
 ]
 line-length = 120
 select = [
