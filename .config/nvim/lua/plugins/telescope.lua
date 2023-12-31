@@ -22,6 +22,7 @@ local M = {
 		{ "nvim-telescope/telescope-fzf-native.nvim",  build = "make" },
 		{ "fannheyward/telescope-coc.nvim" },
 		{ "nvim-telescope/telescope-file-browser.nvim" },
+        { "nvim-telescope/telescope-live-grep-args.nvim" },
 	},
 }
 
@@ -57,7 +58,7 @@ M.config = function()
 
 	b("n", ",f", "<CMD>Telescope find_files<CR>", opts)
 	b("n", ",g", builtin.live_grep, opts)
-	-- b("n", ",G", require("telescope").extensions.live_grep_args.live_grep_args(), opts)
+	b("n", ",G", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>", opts)
 	b("n", ",,", builtin.resume, opts)
 	b({ "n", "v" }, ",v", builtin.grep_string, opts)
 	b({ "n", "v" }, ",r", builtin.registers, opts)
@@ -275,7 +276,8 @@ M.config = function()
 	require('telescope').load_extension('coc')
 	require("telescope").load_extension("file_browser")
 	-- require("telescope").load_extension('media_files')
-	-- require("telescope").load_extension("live_grep_args")
+	require("telescope").load_extension("live_grep_args")
+    require("telescope").load_extension("bookmarks")
 end
 
 

@@ -37,7 +37,6 @@ lazy.setup({
 	{ "sindrets/diffview.nvim" },                             -- :Diffview
 	{ "wellle/targets.vim" },                                 -- next for textobjects in( an( {["'
 	{ "tpope/vim-fugitive" },                                 -- Neogit
-	{ "jinh0/eyeliner.nvim" },                                -- fast F motion and highlight uniq chars
 	{ "RRethy/vim-tranquille" },                              -- search and highlight without moving the cursor g/
 	{ "NeogitOrg/neogit",         config = true },            -- leader G
 	{ "ldelossa/buffertag",       config = r("buffertag") },  -- float name for tab
@@ -51,7 +50,7 @@ lazy.setup({
 	-- -----------------------
 	--
 	require("plugins.asterisk"),             -- * # highlight without next obj
-	require("plugins.marks"),                -- marks manipulation
+    require("plugins.bookmarks"),
 	require("plugins.twilight"),             -- highlight in Zoom mode
 	require("plugins.markdown-preview"),     -- markdown preview :MarkdownPreview
 	require("plugins.my_theme"),             -- themes
@@ -74,7 +73,6 @@ lazy.setup({
 	require("plugins.gitsigns"),             -- right sign inline
 	require("plugins.lazygit"),              -- leader+l+g
 	require("plugins.wilder"),               -- menu vim
-	require("plugins.nvim-treesitter-context"), -- context (leader t c)
 	require("plugins.tagbar"),               -- tagbar F8
 	require("plugins.codeium"),              -- Codeium AI
 	require("plugins.coc"),                  -- LSP
@@ -85,16 +83,11 @@ lazy.setup({
 	require("plugins.neotest"),              -- tests ui
 	require("plugins.dap_python"),           -- tests ui
 	require("plugins.nvim-scrollview"),      -- scroll bar on right
-	require("plugins.telekasten"),           -- notes in markdown
 	require("plugins.hlslens"),              -- for navigate in search mode
 	require("plugins.spectre"),              -- search and replace
 	require("plugins.smart-splits"),         -- navigate for tmux and resize (ctrl -> navigate, alt -> resize)
 	require("plugins.vim-matchup"),          -- % match
 	require("plugins.notify"),               -- notifications
-	require("plugins.harpoon"),              -- marks for file
-	require("plugins.floaterm"),
-	require("plugins.dadbod"),               -- vim db and ui
-	-- require("plugins.windows"),
 
 	-- ----------------------------
 	-- NOTE: dependencies
@@ -158,4 +151,12 @@ lazy.setup({
 	-- 	-- Track each new require in the Lazy profiling tab
 	-- 	require = false,
 	-- },
+	-- require("plugins.marks"),   -- заменил на bookmarks.nvim. Так как нет глоб сохранения
+	-- require("plugins.harpoon"),              -- marks for file
+	-- require("plugins.floaterm"),  -- не юзаю
+	-- require("plugins.dadbod"),               -- vim db and ui  -- не юзаю
+	-- require("plugins.windows"),
+	-- require("plugins.telekasten"),           -- notes in markdown  -- не юзаю
+	-- require("plugins.nvim-treesitter-context"), -- context (leader t c) -- чаще отключаю, а не юзаю
+	-- { "jinh0/eyeliner.nvim" },                                -- fast F motion and highlight uniq chars  -- не юзаю
 })
