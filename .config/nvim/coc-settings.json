@@ -51,4 +51,36 @@
     "colors.enable": true,
     "coc.preferences.extensionUpdateCheck": "daily",
     "yaml.format.enable": true,
+    "diagnostic-languageserver.enable": true,
+    "diagnostic-languageserver.formatFiletypes": {
+        "sh": [
+            "shfmt",
+        ],
+    },
+    "diagnostic-languageserver.formatters": {
+        "shfmt": {
+            "command": "shfmt",
+            "args": [
+                "-i",
+                "2",
+                "-bn",
+                "-ci",
+                "-sr"
+            ]
+        }
+    },
+    "diagnostic-languageserver.filetypes": {
+        "sh": [
+            "shellcheck",
+        ],
+        "make": [
+            "checkmake",
+        ],
+    },
+    "diagnostic-languageserver.linters": {
+        "shellcheck": {
+            "command": "shellcheck",
+            "args": []
+        },
+    }
 }

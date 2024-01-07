@@ -7,6 +7,7 @@ return {
 	config = function()
 		vim.cmd([[colorscheme edge]])
 		vim.g.edge_better_performance = 1
+        -- vim.g.edge_style = 'neon'
 	end,
 	dependencies = {
 		{ "tribela/vim-transparent" }, -- transparent background

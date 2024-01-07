@@ -132,6 +132,8 @@ zsh-autocomplete
 history
 autoswitch_virtualenv
 httpie
+cd-ls
+dotbare
 # zsh-interactive-cd
 # zsh-navigation-tools
 )
